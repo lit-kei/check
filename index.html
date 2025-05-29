@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チェッカー</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <h1>チェッカー</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container input">
+            <form action="" id="form">
+                
+                <input type="text" placeholder="名前を入力してください..." required id="p1" autocomplete="off">
+                <span class="and">と</span>
+                <input type="text" placeholder="名前を入力してください..." required id="p2" autocomplete="off">
+                <button type="submit">チェック</button>
+            </form>
+
+        </div>
+        <div class="container result" id="result">
+            <div class="spinner" id="spinner"></div>
+
+        </div>
+        <div class="modal" id="modal">
+            <form id="nameForm">
+                <div class="modal-inner container">
+                    <span class="name">あなたの名前を入力してください。</span>
+                    <input type="text" id="name" placeholder="あなたの名前" required autocomplete="off">
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <label class="advice" for="checkbox">次回から入力しない</label>
+                    </div>
+                    <div class="buttons">
+                        <button type="button" class="cancel" id="cancel">キャンセル</button>
+                        <button type="submit" id="confirm">決定</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="main.js" type="module"></script>
+</body>
+</html>

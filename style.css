@@ -1,0 +1,231 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #f3f3f3;
+}
+header {
+    width: 100%;
+    height: 100px;
+    background-color:#f78fb3;
+}
+.header-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.header-inner * {
+    color: white;
+}
+.header-inner h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 40px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+}
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+.input {
+    margin-top: 30px;
+}
+.result {
+    display: none;
+    position: relative;
+    min-height: 100px;
+}
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input[type=text] {
+    width: 60%;
+    margin: 10px 0;
+    padding: 8px 15px;
+    border: 2px solid #f8a5c2;
+    border-radius: 20px;
+    background-color: #fff0f6;
+    font-size: 16px;
+    color: #884455;
+    box-shadow: 0 4px 6px rgba(248, 165, 194, 0.3);
+    transition: all 0.3s ease;
+    outline: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[type=text]::placeholder {
+    color: #f8a5c2;
+    font-style: italic;
+}
+
+input[type=text]:focus {
+    border-color: #d6336c;
+    box-shadow: 0 0 8px 2px rgba(214, 51, 108, 0.5);
+    background-color: #fff0f6;
+}
+input[type=checkbox] {
+    position: relative;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    margin-top: -1px;
+    border-radius: 3px;
+    background-color: #ffe6f0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    vertical-align: middle;
+    transition: .3s;
+    border: 1px solid #f8a5c2;
+}
+input[type=checkbox]:checked {
+    background-color: #d6336c;
+}
+input[type=checkbox]:checked::before {
+    position: absolute;
+    padding: 4px;
+    color: white;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 10px;
+    content: '\f00c';
+}
+.and {
+    font-size: 20px;
+}
+span, .advice {
+    color: #d6336c;
+}
+label {
+    cursor: pointer;
+}
+button {
+  background: #ffb6c1; /* パステルピンク */
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(255, 182, 193, 0.6);
+  transition: all 0.3s ease, transform 0.2s ease;
+}
+
+button:not(.cancel):hover {
+  background: #ff90a0;
+  transform: scale(1.05);
+}
+
+button:not(.cancel):active {
+  background: #ff7390;
+  transform: scale(0.95);
+}
+.modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(55, 55, 55, 0.5);
+    display: none;
+}
+.modal-inner {
+    z-index: 11;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+}
+#name {
+    margin: 5px auto 10px auto;
+}
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    margin: 10px auto;
+}
+.buttons button {
+    padding: 10px 30px;
+}
+.cancel {
+    background-color: white;
+    color: #ff7390;
+    box-shadow: none;
+    border: 1px solid #ff7390;
+}
+.cancel:hover {
+    background: #ddd;
+    transform: scale(1.05);
+}
+.cancel:active {
+    background: #aaa;
+    transform: scale(0.95);
+}
+.spinner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ddd;
+    border-top: 4px solid #f8a5c2;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    top: 50%;
+    left: 50%;
+}
+.result *:not(.type) {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90% !important;
+    }
+    input {
+        width: 100% !important;
+    }
+    #name {
+        width: 100% !important;
+    }
+    .buttons {
+        width: 90% !important;
+    }
+}
