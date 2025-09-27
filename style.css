@@ -3,6 +3,10 @@
     margin: 0;
     box-sizing: border-box;
 }
+html {
+    
+    background-color:#f78fb3;
+}
 body {
     background-color: #f3f3f3;
 }
