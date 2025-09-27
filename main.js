@@ -110,7 +110,7 @@ async function check() {
             lank: result
         });
         document.getElementById('share-button').addEventListener('click', () => {
-            window.open(`https://line.me/R/msg/text/?${p1}と${p2}は${varieties[result].lank}https://lit-kei.github.io/checker`);
+            window.open(`https://line.me/R/msg/text/?${p1}と${p2}は${varieties[result].lank}https://lit-kei.github.io/check`);
         });
     } catch (error) {
         console.error(error);
