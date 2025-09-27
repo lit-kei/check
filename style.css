@@ -303,4 +303,7 @@ button:not(.cancel):active {
     .input {
         margin-top: 30px;
     }
+     .typewriter-text {
+        margin-bottom: 20px;
+     }
 }
