@@ -3,39 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>チェッカー</title>
+    <title>相性チェッカー</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="header-inner">
-            <h1>チェッカー</h1>
+            <h1>相性チェッカー</h1>
         </div>
     </header>
     <main>
         <div class="container input">
             <form action="" id="form">
                 
-                <input type="text" placeholder="名前を入力してください..." required id="p1" autocomplete="off">
+                <input type="text" placeholder="名前を入力してください..." required id="p1" autocomplete="off" maxlength="32">
                 <span class="and">と</span>
-                <input type="text" placeholder="名前を入力してください..." required id="p2" autocomplete="off">
+                <input type="text" placeholder="名前を入力してください..." required id="p2" autocomplete="off" maxlength="32">
+                <span class="and last">の相性</span>
                 <button type="submit">チェック</button>
             </form>
 
         </div>
         <div class="container result" id="result">
             <div class="spinner" id="spinner"></div>
-
+            <div class="result-box" id="result-box">
+                <span id="result-label">結果</span>
+                <span id="1">・</span>
+                <span id="2">・</span>
+                <span id="3">・</span>
+                <span id="display"></span>
+                <p>&shy;</p>
+                <p id="typewriter" class="typewriter-text"></p>
+            </div>
+            <button id="share-button">LINEで共有する</button>
         </div>
         <div class="modal" id="modal">
             <form id="nameForm">
                 <div class="modal-inner container">
-                    <span class="name">あなたの名前を入力してください。</span>
-                    <input type="text" id="name" placeholder="あなたの名前" required autocomplete="off">
+                    <span class="name">あなたのお名前を入力してください。</span>
+                    <input type="text" id="name" placeholder="名前（漢字）" required autocomplete="off">
+                    <span class="alert" id="alert">カタカナ以外の文字が含まれています。</span>
+                    <input type="text" id="name-kari" placeholder="名前（カタカナ）" required autocomplete="off">
+                    <div class="tos__content">
+                        <h3 class="tos__section-title">本サービスにおける利用規約</h3>
+                        <section class="tos__section">
+                            <h3 class="tos__section-title">第1条（適用）</h3>
+                            <p class="tos__text">この利用規約（以下「本規約」といいます。）は、本サービスの利用に関するユーザーと運営の間の権利義務関係を定めるものです。</p>
+                        </section>
+                        <section class="tos__section">
+                            <h3 class="tos__section-title">第2条（禁止事項）</h3>
+                            <p class="tos__text">・法令または公序良俗に反する行為</p>
+                            <p class="tos__text">・その他運営が不適切と判断する行為</p>
+                            <p>これらの行為によって運営が不利益を被った場合は、法的処置を取ることがあります。</p>
+                        </section>
+                        <section class="tos__section">
+                            <h3 class="tos__section-title">第3条（免責）</h3>
+                            <p class="tos__text">本サービスに関してユーザーに生じた損害について、一切の責任を負いかねません。</p>
+                        </section>
+                        <section class="tos__section">
+                            <h3 class="tos__section-title">第4条（情報収集）</h3>
+                            <p class="tos__text">本サービスの利用率や利用時間帯を調査するために、個人情報を収集しています。</p>
+                            <p class="tos__text">不正なbotによるサイバー攻撃を防ぐために名前の入力を求めています。</p>
+                            <p class="tos__text">本サービスによりユーザーから収集した個人情報を、不特定多数の人がアクセスできる状態にすることはありません。</p>
+                            <p class="tos__text">ユーザーは運営に対して、収集したデータの開示を求めることができます。</p>
+                        </section>
+                        <section class="tos__section">
+                            <h3 class="tos__section-title">第5条（同意）</h3>
+                            <p class="tos__text">以下のチェックボックスを有効にして次に進むと、本規約を同意したものとみなします。</p>
+                            <p class="tos__text">また、本規約の効力はユーザーからの申し出がない限り、続くものとします。</p>
+                            <p class="tos__text">本規約を同意すると再び本規約が現れることはありません。</p>
+                        </section>
+                        <section class="tos__section">
+                            <h3 class="tos__section-title">第6条（現実性）</h3>
+                            <p class="tos__text">本サービスによって生成された文章は、現実と乖離していることがあります。</p>
+                            <p class="tos__text">また、本サービスでは指定された名前のUnicode値をシード値とした疑似乱数生成を行っています。</p>
+                            <p class="tos__text">したがって、本サービスはただの遊びにすぎません。</p>
+                            <p class="tos__text">すべてを真実だと受け止めず、自分の力で考えてみるとよいでしょう。</p>
+                        </section>
+                    </div>
                     <div class="checkbox">
-                        <input type="checkbox" id="checkbox" />
-                        <label class="advice" for="checkbox">次回から入力しない</label>
+                        <input type="checkbox" id="checkbox" required/>
+                        <label class="advice" for="checkbox">利用規約に同意する</label>
                     </div>
                     <div class="buttons">
                         <button type="button" class="cancel" id="cancel">キャンセル</button>

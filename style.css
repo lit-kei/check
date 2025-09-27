@@ -10,6 +10,7 @@ header {
     width: 100%;
     height: 100px;
     background-color:#f78fb3;
+    padding: 0 40px;
 }
 .header-inner {
     height: 100%;
@@ -42,7 +43,7 @@ main {
     flex-direction: column;
 }
 .input {
-    margin-top: 30px;
+    margin-top: 50px;
 }
 .result {
     display: none;
@@ -53,6 +54,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+    padding: 20px;
 }
 input[type=text] {
     width: 60%;
@@ -109,6 +112,9 @@ input[type=checkbox]:checked::before {
 .and {
     font-size: 20px;
 }
+.last {
+    margin-bottom: 20px;
+}
 span, .advice {
     color: #d6336c;
 }
@@ -127,7 +133,6 @@ button {
   box-shadow: 0 4px 6px rgba(255, 182, 193, 0.6);
   transition: all 0.3s ease, transform 0.2s ease;
 }
-
 button:not(.cancel):hover {
   background: #ff90a0;
   transform: scale(1.05);
@@ -155,10 +160,18 @@ button:not(.cancel):active {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    gap: 10px;
+    gap: 20px;
 }
-#name {
+.name {
+    margin-top: 10px;
+}
+#name, #name-kari {
     margin: 5px auto 10px auto;
+}
+.alert {
+    color: red;
+    margin-top: 10px;
+    display: none;
 }
 .checkbox {
     display: flex;
@@ -201,10 +214,58 @@ button:not(.cancel):active {
     top: 50%;
     left: 50%;
 }
-.result *:not(.type) {
-    opacity: 0;
+.result-box {
+    width: 90%;
+    margin: 0 auto 76px auto;
+}
+.result * {
     transition: opacity 1s ease;
 }
+.result-box span {
+    font-weight: bold;
+    opacity: 1;
+    font-size: 30px;
+    color:#ff7390;
+    margin-right: 5px;
+}
+#result-label strong {
+    text-decoration: underline;
+    color:#d6336c;
+    font-size: 35px;
+}
+#display {
+    color:#d6336c;
+    font-size: 40px;
+    margin-left: 10px;
+}
+#share-button {
+    transition: all 0.3s ease, transform 0.2s ease, opacity 1s ease;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    margin: 10px 20px;
+}
+  .typewriter-text {
+    display: inline-block;
+    white-space: pre-wrap;
+    font-size: 20px;
+    min-height: 90px;
+  }
+
+.tos__content {
+    text-align: left;
+    padding: 0 0 20px 20px;
+    margin: auto;
+    width: 90%;
+    height: 200px;
+    overflow-y: scroll;
+    border: #222 1px solid;
+}
+.tos__section-title {
+    margin-top: 20px;
+}
+
+
 
 @keyframes spin {
   0% {
@@ -216,16 +277,25 @@ button:not(.cancel):active {
 }
 
 @media (max-width: 768px) {
+    header {
+        padding: 0;
+    }
     .container {
         width: 90% !important;
     }
-    input {
+    input:not(#checkbox) {
         width: 100% !important;
     }
-    #name {
+    #name, #name-kari {
         width: 100% !important;
     }
     .buttons {
         width: 90% !important;
+    }
+    .result-box {
+        width: 100% !important;
+    }
+    .input {
+        margin-top: 30px;
     }
 }
