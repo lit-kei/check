@@ -9,7 +9,7 @@ html {
 }
 body {
     background-color: #f3f3f3;
-    font-family: "Arial", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 header {
     width: 100%;
